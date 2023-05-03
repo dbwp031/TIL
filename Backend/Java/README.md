@@ -52,7 +52,8 @@ Java는 객체지향언어로, private 멤버 선언을 지향해야 한다.
   * @SuppressWarnings: 컴파일러 경고를 출력하지 않도록 설정
   * 등등
 * meta annotaion (커스텀 어노테이션을 만들 때 사용하는 어노테이션)
-  * TODO: 나중에 사용할 때 추가
-  
+  * @Target: 어노테이션 적용 범위
+  * @Retention: 언제까지 메타 정보를 유지할지 기간을 설정 [Source, Class, Runtime]
+  * @Documented: 자바 문서에도 어노테이션 정보가 들어가도록 함
 </details>
 
