@@ -46,6 +46,8 @@ Java는 객체지향언어로, private 멤버 선언을 지향해야 한다.
 
 자바의 어노테이션은 메타 데이터의 일종이다.
 
+<strong>annotation 종류</strong>
+
 * built-in annotation
   * @Override: 메서드를 오버라이드 하겠다는 의미. 만약 상속받은 클래스 혹은 인터페이스에서 해당 메소드가 없다면 컴파일 오류 발생
   * @Deprecated: 메서드를 Deprecated (더이상 사용하지 않겠다)시킨다. 이 메서드를 사용하는 애플리케이션을 컴파일할 경우, 컴파일 경고를 날린다. 해당 메서드를 사용하지 말라고 경고를 날리고 싶을 때 사용.
@@ -55,5 +57,11 @@ Java는 객체지향언어로, private 멤버 선언을 지향해야 한다.
   * @Target: 어노테이션 적용 범위
   * @Retention: 언제까지 메타 정보를 유지할지 기간을 설정 [Source, Class, Runtime]
   * @Documented: 자바 문서에도 어노테이션 정보가 들어가도록 함
+  
+<strong>annotation processor</strong>
+
+컴파일 단계에서 annotation에 정의된 일련의 프로세스(소스코드를 참고하여 새로운 코드를 작성하는 것)를 동작하게 하는 것이다. 컴파일 단계에서 실행되기 때문에, 빌드 단계에서 에러를 출력할 수 있고, 소스코드 및 바이트 코드를 생성할 수 있다.
+
+
 </details>
 
