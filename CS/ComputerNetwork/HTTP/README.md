@@ -14,6 +14,13 @@
   * [섹션 1. 인터넷 네트워크 (IP, TCP&UDP, PORT, DNS)](#섹션-1-인터넷-네트워크)
 
 ## 섹션 1. 인터넷 네트워크
+
+인터넷 프로토콜 스택은 4계층으로 이루어져 있다.
+* 애플리케이션 계층 -> HTTP, FTP
+* 전송 계층 -> TCP, UDP
+* 인터넷 계층 -> IP
+* 네트워크 인터페이스 계층
+
 <details>
 <summary>IP</summary>
 
@@ -36,4 +43,47 @@
   * 더 자세한 내용은 Computer Network 정리 시에 작성
 ```
 
+</details>
+
+<details>
+ <summary>TCP & UDP</summary>
+ 
+ ### Transition Control Protocol
+ * TCP 세그먼트
+   * 출발지 PORT, 목적지 PORT, 전송 제어, 순서, 검증 정보 ... 등등 IP에서의 한계를 보완하는 정보들이 추가되어 있다.
+ * TCP 특징
+   * 연결지향 - 3 way handshake (가상 연결)
+     1. 클라 -> 서버 (sync 날림)
+     2. 서버 -> 클라 (ack + sync 날림)
+     3. 클라 -> 서버 (ack 날림)
+       * sync: 접속 요청
+       * ack : 요청 수락
+   * 데이터 전달 보증
+      * 데이터가 전달을 받으면 전달 받았다는 정보를 다시 전달
+   * 순서 보장
+      * 패킷 순서에 대한 정보를 가지고 있어서, 순서대로 들어오지 않을 시에 재전송하도록 함.
+ 
+ ### User Datagram Protocol
+*  IP와 거의 같다. + PORT + 체크섬(메세지 제대로 왔는지 검증하는 데이터) 정도만 추가
+* 애플리케이션에서 추가 작업이 필요
+</details>
+
+
+<details>
+ <summary>PORT</summary>
+ ### PORT
+ TCP / IP 패킷 = IP 패킷 + TCP 세그먼트, 출발지 및 도착지에 대한 포트정보는 TCP 세그먼트에 들어있다.
+ 
+ 같은 IP 주소에서 여러 애플리케이션을 사용할 때, 프로세스를 구분하기 위해서 사용된다.
+ 
+ `IP주소 -> 주소, Port -> 아파트 호수` 정도로 비유를 들 수 있다.
+</details>
+
+
+<details>
+ <summary>DNS</summary>
+ ### Domain Name System
+ * IP는 기억하기 어렵고, 변경될 가능성이 있다.
+ * 이를 해결하기 위해 DNS 사용.
+ * DNS 서버에는 `도메인 명 - IP 주소` 정보가 있어 DNS 서버에서 도메인 명으로 도메인 IP 주소를 알 수 있다.
 </details>
