@@ -115,7 +115,7 @@
  
  <details>
  <summary>웹 브라우저 요청 흐름</summary>
- 예시 URL: `https://www.google.com/search?q=hello&hl=ko`
+ 예시 URL: https://www.google.com/search?q=hello&hl=ko
  
  1. `www.google.com` -> DNS 조회해서 IP주소 찾음
  2. HTTP 요청 메세지 생성
@@ -124,10 +124,12 @@
  Host:www.google.com
  ```
  3. HTTP 메세지 전송
-   a. 웹 브라우저가 메세지 생성
-   b. SOCKET 라이브러리를 통해 전달
-   c. TCP/IP 패킷 생성, HTTP 메세지 포함
-4. 구글 서버에 요청 패킷 도착 및 응답 메세지 생성
+```
+a. 웹 브라우저가 메세지 생성
+b. SOCKET 라이브러리를 통해 전달
+c. TCP/IP 패킷 생성, HTTP 메세지 포함
+```
+ 4. 구글 서버에 요청 패킷 도착 및 응답 메세지 생성
 ```
 HTTP/1.1 200 OK
 Content-Type: text/html;charset=UTF-8
