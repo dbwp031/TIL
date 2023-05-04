@@ -71,6 +71,7 @@
 
 <details>
  <summary>PORT</summary>
+ 
  ### PORT
  TCP / IP 패킷 = IP 패킷 + TCP 세그먼트, 출발지 및 도착지에 대한 포트정보는 TCP 세그먼트에 들어있다.
  
@@ -82,6 +83,7 @@
 
 <details>
  <summary>DNS</summary>
+ 
  ### Domain Name System
  * IP는 기억하기 어렵고, 변경될 가능성이 있다.
  * 이를 해결하기 위해 DNS 사용.
