@@ -93,3 +93,47 @@
 
 
 ## 섹션 2. URI와 웹 브라우저 요청 흐름
+
+<details>
+ <summary>URI</summary>
+ 
+ ### Uniform Resource Identifier
+ * 인터넷자원을 나타내는 고유 식별자로, 각 자원에 대한 URI는 유일해야 한다.
+   * 이때 자원이란, URI로 식별할 수 있는 모든 것으로, html 외에도 구분할 수 있는 모든 것을 의미한다.
+ * URI의 하위 개념으로 URL (Locator)과 URN (Name)이 있다.
+   * URL은 자원의 위치, URN은 자원의 이름 그자체로, 대부분 URL만 사용한다.
+   * URN이 사용되지 않는 이유는, 이름 - 자원 메핑이 모두 되어있어야 한다는 단점이 있기 때문이다.
+ * URL 문법`scheme://[userinfo@]host[:port][/path][?query][#fragement]`
+   * scheme: 주로 프로토콜을 사용 (어떤 방식으로 자원에 접근할 것인가, http, https, ftp...), http->80, https->443 포트 사용, 포트는 생략 가능
+   * userinfo: URL에 사용자정보 포함해서 인증, 거의 사용 X
+   * host: 호스트명, 도메인명 또는 IP주소 직접 사용 가능
+   * PORT: 접속 포트, 일반적으로 생략
+   * path: 리소스 경로, 계층적 경로
+   * query: `key=value`형태, ?로 시작 &로 추가 가능, query parameter, query string(값이 string 자료형으로 넘어가기 때문)으로 불림
+   * fragment: html 내부 북마크 등에 사용, 서버에 전달 X
+ </details>
+ 
+ <details>
+ <summary>웹 브라우저 요청 흐름</summary>
+ 예시 URL: `https://www.google.com/search?q=hello&hl=ko`
+ 
+ 1. `www.google.com` -> DNS 조회해서 IP주소 찾음
+ 2. HTTP 요청 메세지 생성
+ ```
+ GET /search?q=hello&hl=ko HTTP/1.1
+ Host:www.google.com
+ ```
+ 3. HTTP 메세지 전송
+   a. 웹 브라우저가 메세지 생성
+   b. SOCKET 라이브러리를 통해 전달
+   c. TCP/IP 패킷 생성, HTTP 메세지 포함
+4. 구글 서버에 요청 패킷 도착 및 응답 메세지 생성
+```
+HTTP/1.1 200 OK
+Content-Type: text/html;charset=UTF-8
+ Content-Length: 3423
+ 
+ <html>
+  ...
+```
+ </details>
