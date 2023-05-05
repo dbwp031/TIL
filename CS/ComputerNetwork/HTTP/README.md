@@ -13,6 +13,7 @@
 * 목차
   * [섹션 1. 인터넷 네트워크 (IP, TCP&UDP, PORT, DNS)](#섹션-1-인터넷-네트워크)
   * [섹션 2. URI와 웹 브라우저 요청 흐름](#섹션-2-URI와-웹-브라우저-요청-흐름)
+  * [섹션 3. 섹션 3. HTTP 기본](#섹션-3-HTTP-기본)
 
 ## 섹션 1. 인터넷 네트워크
 
@@ -139,3 +140,52 @@ Content-Type: text/html;charset=UTF-8
   ...
 ```
  </details>
+
+## 섹션 3. HTTP 기본
+HyperText Transfer Protocol
+
+* HTTP 메세지는 HTML뿐 아니라 이미지, JSON등 모든 것을 전송할 수 있다.
+* HTTP는 버전이 다양하게 있으며, 가장 많이 사용하는 버전은 1.1, 버전 3은 UDP를 활용한다.
+
+<details>
+ <summary>클라이언트 서버 구조</summary>
+
+Request Response 구조, 클라이언트는 요청을 보내고 응답을 대기한다. 서버는 요청에 대한 결과를 만들어서 응답한다.
+</details>
+
+<details>
+ <summary>무상태 프로토콜</summary>
+
+<strong>서버가 클라이언트의 상태를 보존하지 않아야 한다.</strong>
+
+클라이언트가 추가 데이터를 전송해야한다는 단점이 있지만, 서버 확장성이 높기 때문에 무상태 프로토콜을 지향해야 한다.
+
+모든 것을 무상태로 설계가 불가능한 상황이 있다. 로그인이 대표적인 상황인데, 이때는 브라우저의 쿠기와 서버 세션을 사용해서 상태를 유지한다. <strong>하지만 상태 유지는 최소한만 사용해야 한다.</strong>
+</details>
+
+<details>
+ <summary>비연결성</summary>
+HTTP는 기본이 연결되지 않는 모델로, 서버 자원을 매우 효율적으로 사용할 수 있다.
+
+하지만, TCP/IP 연결을 매번 맺어야 하니, 3way handshake을 매번 해야해서 시간 지연이 발생한다. 지금은 <strong>HTTP 지속 연결 (Persistent Connections)</strong>로 문제를 해결했으며, HTTP/2, HTTP/3에서 더 많은 최적화를 했다.
+
+HTTP 지속 연결이란, 한번 연결이 되면 정해진 시간동안 계속 요청과 응답을 받는 것이다.
+</details>
+
+<details>
+ <summary>HTTP 메세지</summary>
+HTTP 메세지 구조는 다음과 같다.
+
+* start-line 시작 라인:
+  * 요청 메세지: HTTP 메서드, 요청 대상, HTTP 버전
+  * 응답 메세지: HTTP 버전, HTTP 상태 코드, 이유 문구
+* header 헤더
+  * field-name : field-value (ex. Host: www.google.com & Content-Length: 3423)
+  * HTTP 전송에 필요한 모든 부가정보를 담는다. (바디 내용, 바디 크기, 압축 인증, 등등..)
+* 메세지 바디
+  * 실제 전송할 데이터
+* empty line 공백 라인 (CRLF)
+* message body (메세지 바디)
+
+
+</details>
